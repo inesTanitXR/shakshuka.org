@@ -1,7 +1,7 @@
 # shakshuka.org rebuild — notes and suggestions for Ines
 
 **Goal: leave Wix completely (boycott).** Every Wix piece has a replacement in the table below.
-Leila's review page (seven decisions, copy-ready reply): https://claude.ai/artifact/9qThCiexsEtnif1FFSrgDh — share it from the page's Share menu first. Source kept in `ref-review-page.html`.
+Leila's review page (seven decisions, copy-ready reply): https://inestanitxr.github.io/shakshuka.org/review/ (unlisted, not in nav or sitemap). Source in `ref-review-page.html`, built by build.py.
 
 | On Wix today | New home |
 |---|---|
