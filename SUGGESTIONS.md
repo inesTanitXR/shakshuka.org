@@ -1,5 +1,21 @@
 # shakshuka.org rebuild — notes and suggestions for Ines
 
+**Goal: leave Wix completely (boycott).** Every Wix piece has a replacement in the table below.
+Leila's review page (seven decisions, copy-ready reply): https://claude.ai/artifact/9qThCiexsEtnif1FFSrgDh — share it from the page's Share menu first. Source kept in `ref-review-page.html`.
+
+| On Wix today | New home |
+|---|---|
+| Hosting | GitHub Pages, free |
+| Events, RSVPs, donations, membership plans | Zeffy (Givebutter second) |
+| Cookbook store | Zeffy shop, or PayPal/Square link, or email orders |
+| Blog | pages on the new site |
+| Forms | FormSubmit to their inbox |
+| Newsletter | Buttondown / Mailchimp free tier |
+| Members area, forum | dropped; WhatsApp/Signal group |
+| Swag shop | dropped or Printful link |
+| Domain | if registered through Wix, transfer out before closing the account |
+
+
 Built 2026-10-06 (restyled same day on tanitxr.org/inessaid.com lines, no tile motifs). Preview: run `python3 build.py`, then open `docs/index.html` (or the local server).
 
 ## What I found on the current site

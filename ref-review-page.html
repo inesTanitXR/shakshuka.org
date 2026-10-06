@@ -1,0 +1,204 @@
+<title>Shakshuka Site Review</title>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&display=swap">
+<style>
+/* layout: one narrow column of numbered decisions, each a card of tappable choices, ending in a copy-ready message */
+:root{
+  --bg:#fcf7f1; --paper:#ffffff; --ink:#1f1b22; --body:#4a3f48; --muted:#8c7f88; --line:#eadfd6;
+  --gold:#e8b83a; --gold-deep:#c99a1f; --plum:#5e2246; --blue:#2f6b94; --ok:#3a7d5c;
+  --display:'Yeseva One',Georgia,serif; --sans:'Roboto',-apple-system,'Helvetica Neue',Arial,sans-serif;
+}
+@media (prefers-color-scheme: dark){ :root:not([data-theme="light"]){ --bg:#1b1b22; --paper:#25242c; --ink:#f6f1ea; --body:#d9d2cc; --muted:#9f968f; --line:#3a3842; --gold:#e8b83a; --gold-deep:#f0c75a; --plum:#e6b8d0; --blue:#8bb7d8; --ok:#7fc59f; color-scheme:dark } }
+:root[data-theme="dark"]{ --bg:#1b1b22; --paper:#25242c; --ink:#f6f1ea; --body:#d9d2cc; --muted:#9f968f; --line:#3a3842; --gold:#e8b83a; --gold-deep:#f0c75a; --plum:#e6b8d0; --blue:#8bb7d8; --ok:#7fc59f; color-scheme:dark }
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--body);font:17px/1.6 var(--sans);padding-block:0 60px;padding-inline:18px}
+.wrap{max-width:680px;margin:0 auto}
+h1,h2,h3{font-family:var(--display);font-weight:400;color:var(--ink);line-height:1.15;margin:0;text-wrap:balance}
+h1{font-size:clamp(2rem,6vw,2.9rem)}
+h2{font-size:1.45rem}
+p{margin:0}
+.hero{padding-block:52px 28px;border-bottom:1px solid var(--line);display:grid;gap:16px}
+.hero .kicker{font-size:.76rem;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--gold-deep)}
+.hero p{max-width:58ch}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:8px;background:var(--gold);color:#1f1b22;font:700 .95rem var(--sans);padding:13px 24px;border-radius:999px;text-decoration:none;border:2px solid var(--gold);cursor:pointer;transition:.15s}
+.btn:hover{background:var(--gold-deep);border-color:var(--gold-deep)}
+.btn.ghost{background:transparent;color:var(--ink);border-color:var(--line)}
+.btn.ghost:hover{border-color:var(--ink)}
+.btn:focus-visible,.choice:focus-within,input:focus-visible,textarea:focus-visible{outline:3px solid var(--gold);outline-offset:2px}
+.steps{display:grid;gap:22px;padding-block:32px}
+.step{background:var(--paper);border:1px solid var(--line);border-radius:18px;padding:24px 22px;display:grid;gap:14px}
+.step header{display:grid;grid-template-columns:auto 1fr;gap:14px;align-items:start}
+.num{width:34px;height:34px;border-radius:50%;background:var(--gold);color:#1f1b22;font:700 .9rem var(--sans);display:grid;place-items:center;flex:none;margin-top:2px}
+.step header p{color:var(--muted);font-size:.97rem;margin-top:4px}
+.choices{display:grid;gap:10px}
+.choice{display:flex;gap:12px;align-items:flex-start;border:1.5px solid var(--line);border-radius:12px;padding:12px 14px;cursor:pointer;background:var(--bg);transition:.12s}
+.choice:hover{border-color:var(--gold-deep)}
+.choice input{margin-top:5px;accent-color:var(--gold-deep);flex:none}
+.choice b{display:block;color:var(--ink);font-weight:700}
+.choice span{font-size:.92rem;color:var(--muted)}
+.choice.on{border-color:var(--gold-deep);background:var(--paper);box-shadow:0 0 0 2px var(--gold) inset}
+.rec{display:inline-block;font-size:.68rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ok);margin-left:6px}
+.field{display:grid;gap:6px}
+.field label{font-size:.78rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--muted)}
+input[type=text],input[type=email],textarea{width:100%;font:inherit;padding:11px 13px;border:1.5px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink)}
+textarea{min-height:88px;resize:vertical}
+.fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:540px){.fields{grid-template-columns:1fr}}
+.moves{border:1px solid var(--line);border-radius:14px;overflow:hidden;font-size:.95rem}
+.moves div{display:grid;grid-template-columns:1fr 1fr;gap:10px;padding:10px 14px;border-bottom:1px solid var(--line)}
+.moves div:last-child{border-bottom:0}
+.moves div:first-child{background:var(--bg);font-size:.72rem;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--muted)}
+.moves b{color:var(--ink);font-weight:500}
+.moves em{font-style:normal;color:var(--plum)}
+.send{background:var(--ink);color:#f6f1ea;border-radius:18px;padding:26px 22px;display:grid;gap:14px}
+.send h2{color:#fff}
+.send p{color:#d9d2cc;font-size:.97rem}
+.send pre{white-space:pre-wrap;word-break:break-word;font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;background:#0f0f14;color:#eee;border-radius:12px;padding:16px;margin:0;max-height:300px;overflow:auto}
+.send .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.send .addr{font-size:.95rem;color:#fff;user-select:all;background:#2b2a33;padding:8px 12px;border-radius:8px}
+.toast{font-size:.9rem;color:var(--gold)}
+.progress{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
+.bar{height:4px;background:var(--line);border-radius:4px;width:160px;overflow:hidden}
+.bar i{display:block;height:100%;background:var(--gold);width:0;transition:width .25s}
+@media (prefers-reduced-motion:reduce){*{transition:none!important}}
+</style>
+
+<div class="wrap">
+<div class="progress"><span id="pcount">0 of 6 answered</span><span class="bar"><i id="pbar"></i></span></div>
+
+<section class="hero">
+  <div class="kicker">For Leila · from Ines</div>
+  <h1>The new Shakshuka.org, and seven quick decisions</h1>
+  <p>The new site is built and ready to look at. It leaves Wix completely: hosting, tickets, donations, memberships and the cookbook all move to tools that cost nothing. Tap through the seven questions below, then copy the message at the end and send it to me. Ten minutes, and I can finish.</p>
+  <div><a class="btn" href="https://inestanitxr.github.io/shakshuka.org/" target="_blank" rel="noopener">Open the new site</a></div>
+</section>
+
+<div class="steps">
+
+<div class="step" data-q="1">
+  <header><div class="num">1</div><div><h2>Tickets, donations and memberships</h2><p>Wix Events, Wix Donations and Wix Plans all go. One tool can replace the three.</p></div></header>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q1" value="Zeffy"><div><b>Zeffy <span class="rec">Recommended</span></b><span>Made for 501(c)(3)s. No platform fee and no card fee; donors leave an optional tip. Tickets with capacity and QR check-in, recurring donations, yearly memberships, automatic tax receipts.</span></div></label>
+    <label class="choice"><input type="radio" name="q1" value="Givebutter"><div><b>Givebutter</b><span>Same free model with tips, slightly prettier event pages. A good second choice.</span></div></label>
+    <label class="choice"><input type="radio" name="q1" value="Eventbrite for events, Zeffy for the rest"><div><b>Eventbrite for events, Zeffy for the rest</b><span>Eventbrite brings discovery but charges about 3.7% + $1.79 per paid ticket.</span></div></label>
+    <label class="choice"><input type="radio" name="q1" value="Help me decide"><div><b>Help me decide</b><span>Ines sets up Zeffy with you on a call.</span></div></label>
+  </div>
+</div>
+
+<div class="step" data-q="2">
+  <header><div class="num">2</div><div><h2>Selling the cookbook</h2><p>The Wix store goes too. Signed copies are $36.</p></div></header>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q2" value="Zeffy shop"><div><b>Zeffy shop <span class="rec">Recommended</span></b><span>Same account as the tickets. Shipping address collected at checkout.</span></div></label>
+    <label class="choice"><input type="radio" name="q2" value="PayPal or Square link"><div><b>PayPal or Square payment link</b><span>Quick, small fee per sale.</span></div></label>
+    <label class="choice"><input type="radio" name="q2" value="Email orders only"><div><b>Orders by email, pay at pickup or by Zelle</b><span>No tool at all, good for a few copies a month.</span></div></label>
+  </div>
+</div>
+
+<div class="step" data-q="3">
+  <header><div class="num">3</div><div><h2>Where do messages go?</h2><p>Contact form, RSVPs, recipes and volunteer sign-ups all land in one inbox. The old site only showed the web designer's Gmail.</p></div></header>
+  <div class="field"><label for="q3">Email address for the organization</label><input type="email" id="q3" name="q3" placeholder="for example info@shakshuka.org" autocomplete="off"></div>
+</div>
+
+<div class="step" data-q="4">
+  <header><div class="num">4</div><div><h2>Social media</h2><p>I could not find any Shakshuka accounts. Paste any that exist, or leave empty.</p></div></header>
+  <div class="fields">
+    <div class="field"><label for="q4a">Instagram</label><input type="text" id="q4a" placeholder="@…"></div>
+    <div class="field"><label for="q4b">Facebook</label><input type="text" id="q4b" placeholder="page link"></div>
+    <div class="field"><label for="q4c">LinkedIn</label><input type="text" id="q4c" placeholder="page link"></div>
+    <div class="field"><label for="q4d">Other / WhatsApp group</label><input type="text" id="q4d" placeholder="optional"></div>
+  </div>
+</div>
+
+<div class="step" data-q="5">
+  <header><div class="num">5</div><div><h2>The board page</h2><p>I expanded each board member's one-line description into two or three sentences. <a href="https://inestanitxr.github.io/shakshuka.org/team/" target="_blank" rel="noopener">Read them here.</a></p></div></header>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q5" value="Bios approved"><div><b>They are fine, publish them</b></div></label>
+    <label class="choice"><input type="radio" name="q5" value="I will send corrections"><div><b>I will send corrections</b><span>Write them in the notes box at the end, or send separately.</span></div></label>
+  </div>
+</div>
+
+<div class="step" data-q="6">
+  <header><div class="num">6</div><div><h2>Photos</h2><p>The new site uses no AI images. Right now the Tunisia photos are licensed from Wikimedia Commons; your own event photos would be much better.</p></div></header>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q6" value="Will send 20-30 event photos"><div><b>I will send 20 to 30 photos from past events</b><span>Iftar, sing-along, calligraphy, film nights. Any size, by WeTransfer or Google Drive.</span></div></label>
+    <label class="choice"><input type="radio" name="q6" value="Use the licensed photos for now"><div><b>Use the licensed photos for now</b></div></label>
+  </div>
+</div>
+
+<div class="step" data-q="7">
+  <header><div class="num">7</div><div><h2>The domain and the Wix account</h2><p>To switch shakshuka.org to the new site I need to change its DNS settings. If the domain was bought through Wix, we also move it out before closing the Wix account.</p></div></header>
+  <div class="choices">
+    <label class="choice"><input type="radio" name="q7" value="Domain is registered with Wix"><div><b>The domain was bought through Wix</b></div></label>
+    <label class="choice"><input type="radio" name="q7" value="Domain is registered elsewhere"><div><b>The domain is somewhere else</b><span>GoDaddy, Namecheap, Google… write where in the notes.</span></div></label>
+    <label class="choice"><input type="radio" name="q7" value="Don't know, Mark would know"><div><b>I don't know, Mark would know</b></div></label>
+  </div>
+  <div class="field"><label for="q7b">Who has the Wix login?</label><input type="text" id="q7b" placeholder="name"></div>
+</div>
+
+<div class="step">
+  <header><div class="num" style="background:var(--line);color:var(--ink)">+</div><div><h2>Anything else</h2><p>Corrections, an event to add, a wish.</p></div></header>
+  <textarea id="notes" placeholder="Optional"></textarea>
+</div>
+
+<div class="step">
+  <header><div class="num" style="background:var(--line);color:var(--ink)">i</div><div><h2>What moves where</h2><p>Everything Wix did today, and its replacement. Total running cost after the move: the domain renewal only.</p></div></header>
+  <div class="moves">
+    <div><span>On Wix today</span><span>New home</span></div>
+    <div><b>Website hosting</b><em>GitHub Pages, free</em></div>
+    <div><b>Event tickets, RSVPs</b><em>Zeffy (or your pick above)</em></div>
+    <div><b>Donations</b><em>Zeffy</em></div>
+    <div><b>Membership plans</b><em>Zeffy memberships</em></div>
+    <div><b>Cookbook store</b><em>Your pick above</em></div>
+    <div><b>Blog</b><em>Pages on the new site, posts moved over</em></div>
+    <div><b>Contact and recipe forms</b><em>Built in, delivered to your inbox</em></div>
+    <div><b>Newsletter sign-ups</b><em>Collected on the site; Buttondown or Mailchimp free tier for sending</em></div>
+    <div><b>Members area and forum</b><em>Dropped; a WhatsApp or Signal group does this better</em></div>
+    <div><b>Shak Swag shop</b><em>Dropped, or a Printful storefront link if wanted</em></div>
+  </div>
+</div>
+
+<div class="send">
+  <h2>Send your answers to Ines</h2>
+  <p>This message updates as you answer. Copy it and send it by email or WhatsApp.</p>
+  <pre id="out"></pre>
+  <div class="row">
+    <button class="btn" id="copy" type="button">Copy message</button>
+    <span class="addr" id="addr">ines@tanitxr.org</span>
+    <span class="toast" id="toast" aria-live="polite"></span>
+  </div>
+</div>
+
+</div>
+</div>
+
+<script>
+(function(){
+  const $=s=>document.querySelector(s), $$=s=>[...document.querySelectorAll(s)];
+  const out=$('#out'), toast=$('#toast');
+  function val(name){const r=$$('input[name="'+name+'"]:checked');return r.length?r[0].value:''}
+  function t(id){return ($('#'+id).value||'').trim()}
+  function build(){
+    const lines=['Shakshuka site review, answers from Leila',''];
+    lines.push('1. Tickets, donations, memberships: '+(val('q1')||'(not answered)'));
+    lines.push('2. Cookbook sales: '+(val('q2')||'(not answered)'));
+    lines.push('3. Organization email: '+(t('q3')||'(not answered)'));
+    const soc=[['Instagram','q4a'],['Facebook','q4b'],['LinkedIn','q4c'],['Other','q4d']].filter(x=>t(x[1])).map(x=>x[0]+' '+t(x[1]));
+    lines.push('4. Social: '+(soc.length?soc.join(', '):'none'));
+    lines.push('5. Board bios: '+(val('q5')||'(not answered)'));
+    lines.push('6. Photos: '+(val('q6')||'(not answered)'));
+    lines.push('7. Domain: '+(val('q7')||'(not answered)')+(t('q7b')?' · Wix login: '+t('q7b'):''));
+    if(t('notes')) lines.push('','Notes: '+t('notes'));
+    out.textContent=lines.join('\n');
+    const answered=[val('q1'),val('q2'),t('q3'),val('q5'),val('q6'),val('q7')].filter(Boolean).length;
+    $('#pcount').textContent=(answered===6?'All answered, copy the message below':answered+' of 6 answered'); $('#pbar').style.width=(answered/6*100)+'%';
+    $$('.choice').forEach(c=>c.classList.toggle('on',c.querySelector('input').checked));
+    try{localStorage.setItem('shak-review',JSON.stringify({r:$$('input[type=radio]:checked').map(i=>i.name+'='+i.value),t:$$('input[type=text],input[type=email],textarea').map(i=>i.id+'='+i.value)}))}catch(e){}
+  }
+  try{const s=JSON.parse(localStorage.getItem('shak-review')||'null');if(s){s.r.forEach(p=>{const [n,v]=p.split('=');const i=$$('input[name="'+n+'"]').find(x=>x.value===v);if(i)i.checked=true});s.t.forEach(p=>{const i=p.indexOf('=');const el=document.getElementById(p.slice(0,i));if(el)el.value=p.slice(i+1)})}}catch(e){}
+  document.addEventListener('input',build); document.addEventListener('change',build); build();
+  $('#copy').addEventListener('click',()=>{
+    const done=()=>{toast.textContent='Copied. Now paste it into an email or WhatsApp to Ines.';setTimeout(()=>toast.textContent='',5000)};
+    const fallback=()=>{const r=document.createRange();r.selectNodeContents(out);const s=getSelection();s.removeAllRanges();s.addRange(r);toast.textContent='Text selected: press copy on your keyboard.'};
+    if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(out.textContent).then(done,fallback)}else fallback();
+  });
+})();
+</script>
