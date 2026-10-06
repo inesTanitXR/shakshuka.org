@@ -50,7 +50,7 @@ p+p{margin-top:1em}
 .site-header{position:sticky;top:0;z-index:50;background:rgba(252,247,241,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
-.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.brand img{width:48px;height:48px}
 .brand b{font-family:var(--display);font-weight:600;font-size:1.25rem;letter-spacing:-.01em}
 .brand small{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:-2px}
 nav.main{display:flex;gap:4px;align-items:center}

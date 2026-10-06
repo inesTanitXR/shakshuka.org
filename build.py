@@ -304,7 +304,7 @@ p+p{margin-top:1em}
 .site-header{position:sticky;top:0;z-index:50;background:rgba(252,247,241,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
-.brand img{width:46px;height:46px;border-radius:50%;object-fit:cover}
+.brand img{width:48px;height:48px}
 .brand b{font-family:var(--display);font-weight:600;font-size:1.25rem;letter-spacing:-.01em}
 .brand small{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:-2px}
 nav.main{display:flex;gap:4px;align-items:center}
@@ -497,13 +497,13 @@ def page(path, title, body, desc="", og_img="assets/img/sidi-bou-said-doors.jpg"
 <link rel="canonical" href="{SITE}{path}">
 <meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc or TAGLINE)}">
 <meta property="og:image" content="{SITE}/{og_img}"><meta property="og:type" content="website">
-<link rel="icon" href="/assets/img/logo.jpg">
+<link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 </head><body>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="/"><img src="/assets/img/logo.jpg" alt=""><span><b>Shakshuka</b><small>Tunisian-American · DMV</small></span></a>
+<a class="brand" href="/"><img src="/assets/img/logo.svg" alt=""><span><b>Shakshuka</b><small>Tunisian-American · DMV</small></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="main" id="nav">{nav}</nav>
 </div></header>
@@ -529,7 +529,7 @@ def footer():
     soc = "".join(f'<a href="{u}" target="_blank" rel="noopener">{k.title()}</a>' for k, u in SOCIALS.items())
     return f"""<footer><div class="wrap">
 <div class="cols">
-<div><a class="brand" href="/"><img src="/assets/img/logo.jpg" alt=""><span><b>Shakshuka</b><small>Reimagining community</small></span></a>
+<div><a class="brand" href="/"><img src="/assets/img/logo.svg" alt=""><span><b>Shakshuka</b><small>Reimagining community</small></span></a>
 <p style="margin-top:16px;max-width:38ch">A Tunisian-American community and cultural initiative in Washington, DC, Maryland and Virginia. A registered 501(c)(3) public charity, EIN 92-3134851.</p></div>
 <div><h4>Explore</h4><a href="/about/">About us</a><a href="/team/">Our board</a><a href="/events/">Events</a><a href="/tunisia/">Tunisian organizations & works</a><a href="/blog/">Blog</a></div>
 <div><h4>Take part</h4><a href="/membership/">Become a member</a><a href="/donate/">Donate</a><a href="/volunteer/">Volunteer</a><a href="/recipes/">Share a recipe</a><a href="/cookbook/">The cookbook</a></div>
