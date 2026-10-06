@@ -880,11 +880,19 @@ def build_misc():
 <table class="credits"><tr><th></th><th>Image</th><th>Author</th><th>Licence</th></tr>{rows}</table></div></section>""", "Photo credits")
     (OUT / "404.html").write_text(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url={BASE}/"><title>Not found</title></head><body><p>Page not found. <a href="/">Back home</a>.</p></body></html>""")
     # sitemap + robots
-    urls = [p.relative_to(OUT).parent for p in OUT.rglob("index.html")]
+    urls = [p.relative_to(OUT).parent for p in OUT.rglob("index.html") if "review" not in str(p)]
     sm = "\n".join(f"<url><loc>{SITE}/{str(u) + '/' if str(u) != '.' else ''}</loc></url>" for u in urls)
     (OUT / "sitemap.xml").write_text(f'<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n{sm}\n</urlset>')
     (OUT / "robots.txt").write_text(f"User-agent: *\nAllow: /\nSitemap: {SITE}/sitemap.xml\n")
     (OUT / ".nojekyll").write_text("")
+
+def build_review():
+    """Unlisted review page for the board (not in nav or sitemap)."""
+    src = ROOT / "ref-review-page.html"
+    if not src.exists(): return
+    body = src.read_text()
+    doc = '<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="robots" content="noindex"><link rel="icon" href="' + BASE + '/assets/img/logo.jpg"></head><body>' + body + '</body></html>'
+    out = OUT / "review" / "index.html"; out.parent.mkdir(parents=True, exist_ok=True); out.write_text(doc)
 
 def main():
     (OUT / "assets").mkdir(parents=True, exist_ok=True)
@@ -895,7 +903,7 @@ def main():
         if p.name in ("assets", "CNAME"): continue
         shutil.rmtree(p) if p.is_dir() else p.unlink()
     build_home(); build_about(); build_team(); build_events(); build_tunisia(); build_membership()
-    build_donate(); build_cookbook(); build_recipes(); build_blog(); build_volunteer(); build_contact(); build_misc()
+    build_donate(); build_cookbook(); build_recipes(); build_blog(); build_volunteer(); build_contact(); build_misc(); build_review()
     n = len(list(OUT.rglob("index.html")))
     print(f"built {n} pages → {OUT}")
 
