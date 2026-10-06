@@ -32,25 +32,21 @@ p+p{margin-top:1em}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap}
 .center .btn-row{justify-content:center}
 
-/* Tunisian touches: a hand-drawn Nabeul-style tile (assets/img/tile.svg), cobalt and sky blue on white */
-.tile-band{height:30px;background:url(/shakshuka.org/assets/img/tile.svg) repeat-x center/30px 30px;border-bottom:1px solid var(--line)}
+/* quiet accents only */
+.tile-band{height:3px;background:var(--saffron)}
 .tile-bg{position:relative}
 .tile-corner{position:relative}
-.kicker::before{content:"";width:22px;height:22px;border-radius:50%;background:url(/shakshuka.org/assets/img/tile.svg) center/300% 300%;box-shadow:0 0 0 2px #fff,0 0 0 3px var(--line);flex:none}
-.band-blue .kicker::before,.page-hero .kicker::before{box-shadow:0 0 0 2px rgba(255,255,255,.7)}
-.tile-rule{height:22px;width:220px;background:url(/shakshuka.org/assets/img/tile.svg) repeat-x center/22px 22px;margin:0 0 22px}
-.center .tile-rule{margin-inline:auto}
-.tile-frame{position:relative;padding:16px;background:url(/shakshuka.org/assets/img/tile.svg) center/80px;border-radius:18px;box-shadow:0 18px 44px rgba(35,26,22,.16)}
-.tile-frame img{border-radius:8px;box-shadow:none;border:5px solid #fff}
+.kicker::before{content:"";width:26px;height:2px;background:var(--saffron);flex:none}
+.tile-rule{display:none}
+.tile-frame{position:relative}
 .tile-side{position:relative}
-.tile-side::before{content:"";position:absolute;top:-18px;bottom:-18px;left:-22px;width:22px;background:url(/shakshuka.org/assets/img/tile.svg) center/22px 22px repeat-y;border-radius:4px}
-.tile-single{width:170px;height:170px;border-radius:14px;box-shadow:0 12px 30px rgba(35,26,22,.16);border:5px solid #fff}
+.tile-single{display:none}
 
 /* header */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(252,247,241,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
-.brand img{width:48px;height:48px}
+.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover}
 .brand b{font-family:var(--display);font-weight:600;font-size:1.25rem;letter-spacing:-.01em}
 .brand small{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:-2px}
 nav.main{display:flex;gap:4px;align-items:center}

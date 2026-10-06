@@ -286,25 +286,21 @@ p+p{margin-top:1em}
 .btn-row{display:flex;gap:12px;flex-wrap:wrap}
 .center .btn-row{justify-content:center}
 
-/* Tunisian touches: a hand-drawn Nabeul-style tile (assets/img/tile.svg), cobalt and sky blue on white */
-.tile-band{height:30px;background:url(/assets/img/tile.svg) repeat-x center/30px 30px;border-bottom:1px solid var(--line)}
+/* quiet accents only */
+.tile-band{height:3px;background:var(--saffron)}
 .tile-bg{position:relative}
 .tile-corner{position:relative}
-.kicker::before{content:"";width:22px;height:22px;border-radius:50%;background:url(/assets/img/tile.svg) center/300% 300%;box-shadow:0 0 0 2px #fff,0 0 0 3px var(--line);flex:none}
-.band-blue .kicker::before,.page-hero .kicker::before{box-shadow:0 0 0 2px rgba(255,255,255,.7)}
-.tile-rule{height:22px;width:220px;background:url(/assets/img/tile.svg) repeat-x center/22px 22px;margin:0 0 22px}
-.center .tile-rule{margin-inline:auto}
-.tile-frame{position:relative;padding:16px;background:url(/assets/img/tile.svg) center/80px;border-radius:18px;box-shadow:0 18px 44px rgba(35,26,22,.16)}
-.tile-frame img{border-radius:8px;box-shadow:none;border:5px solid #fff}
+.kicker::before{content:"";width:26px;height:2px;background:var(--saffron);flex:none}
+.tile-rule{display:none}
+.tile-frame{position:relative}
 .tile-side{position:relative}
-.tile-side::before{content:"";position:absolute;top:-18px;bottom:-18px;left:-22px;width:22px;background:url(/assets/img/tile.svg) center/22px 22px repeat-y;border-radius:4px}
-.tile-single{width:170px;height:170px;border-radius:14px;box-shadow:0 12px 30px rgba(35,26,22,.16);border:5px solid #fff}
+.tile-single{display:none}
 
 /* header */
 .site-header{position:sticky;top:0;z-index:50;background:rgba(252,247,241,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
 .site-header .wrap{display:flex;align-items:center;justify-content:space-between;gap:18px;min-height:72px}
 .brand{display:flex;align-items:center;gap:12px;text-decoration:none;color:var(--ink)}
-.brand img{width:48px;height:48px}
+.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover}
 .brand b{font-family:var(--display);font-weight:600;font-size:1.25rem;letter-spacing:-.01em}
 .brand small{display:block;font-size:.68rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);font-weight:800;margin-top:-2px}
 nav.main{display:flex;gap:4px;align-items:center}
@@ -497,19 +493,18 @@ def page(path, title, body, desc="", og_img="assets/img/sidi-bou-said-doors.jpg"
 <link rel="canonical" href="{SITE}{path}">
 <meta property="og:title" content="{esc(full_title)}"><meta property="og:description" content="{esc(desc or TAGLINE)}">
 <meta property="og:image" content="{SITE}/{og_img}"><meta property="og:type" content="website">
-<link rel="icon" type="image/svg+xml" href="/assets/img/logo.svg">
+<link rel="icon" href="/assets/img/logo.jpg">
 <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Yeseva+One&family=Roboto:ital,wght@0,400;0,500;0,700;1,400&family=Aref+Ruqaa:wght@400;700&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="/assets/style.css">
 </head><body>
 <header class="site-header"><div class="wrap">
-<a class="brand" href="/"><img src="/assets/img/logo.svg" alt=""><span><b>Shakshuka</b><small>Tunisian-American · DMV</small></span></a>
+<a class="brand" href="/"><img src="/assets/img/logo.jpg" alt=""><span><b>Shakshuka</b><small>Tunisian-American · DMV</small></span></a>
 <button class="menu-btn" aria-expanded="false" aria-controls="nav">Menu</button>
 <nav class="main" id="nav">{nav}</nav>
 </div></header>
 <div class="tile-band" aria-hidden="true"></div>
 <main>{body}</main>
-<div class="tile-band" aria-hidden="true" style="border-bottom:0"></div>
 {footer()}
 <script src="/assets/site.js"></script>
 </body></html>"""
@@ -529,7 +524,7 @@ def footer():
     soc = "".join(f'<a href="{u}" target="_blank" rel="noopener">{k.title()}</a>' for k, u in SOCIALS.items())
     return f"""<footer><div class="wrap">
 <div class="cols">
-<div><a class="brand" href="/"><img src="/assets/img/logo.svg" alt=""><span><b>Shakshuka</b><small>Reimagining community</small></span></a>
+<div><a class="brand" href="/"><span><b>Shakshuka</b><small>Reimagining community</small></span></a>
 <p style="margin-top:16px;max-width:38ch">A Tunisian-American community and cultural initiative in Washington, DC, Maryland and Virginia. A registered 501(c)(3) public charity, EIN 92-3134851.</p></div>
 <div><h4>Explore</h4><a href="/about/">About us</a><a href="/team/">Our board</a><a href="/events/">Events</a><a href="/tunisia/">Tunisian organizations & works</a><a href="/blog/">Blog</a></div>
 <div><h4>Take part</h4><a href="/membership/">Become a member</a><a href="/donate/">Donate</a><a href="/volunteer/">Volunteer</a><a href="/recipes/">Share a recipe</a><a href="/cookbook/">The cookbook</a></div>
@@ -580,7 +575,6 @@ def build_home():
 
 <section class="tile-bg"><div class="wrap">
 <div class="sec-head center"><div class="kicker">Why “Shakshuka”</div><h2>A dish, and a way of seeing a community</h2>
-<div class="tile-rule"></div>
 <p>Peppers, tomatoes, eggs, harissa: nothing alike, and better together. The dish is our metaphor for the Tunisians, Tunisian-Americans and friends of Tunisia who make up our corner of the DMV, about 5,000 of us.</p></div>
 <div class="grid g3">
 <div class="pillar tile-corner"><div class="num">01</div><h3>Fostering community</h3><p>Bringing together Tunisians and lovers of Tunisian culture in the DMV, so that nobody has to explain where Nabeul is or why Friday means couscous.</p></div>
@@ -601,7 +595,7 @@ def build_home():
 <p class="lede">The 147-page cookbook by Judith Dwan Hallet, Raoudha Guellali Ben Taarit and Hasna Trabelsi, with photographs by Stanley Ira Hallet. Joan Nathan called it “awesome and authentic”.</p>
 <p>Signed first-edition copies are sold through Shakshuka, and every copy supports our programs. We are also collecting the community's own recipes for a second book.</p>
 <div class="btn-row" style="margin-top:22px"><a class="btn" href="/cookbook/">Get the cookbook</a><a class="btn ghost" href="/recipes/">Share a family recipe</a></div></div>
-<figure class="pic framed tile-side">{img('tunisian-meal','A Tunisian table: couscous, brik, salads')}<figcaption>{credit('tunisian-meal')}</figcaption></figure>
+<figure class="pic framed">{img('tunisian-meal','A Tunisian table: couscous, brik, salads')}<figcaption>{credit('tunisian-meal')}</figcaption></figure>
 </div></div></section>
 
 <section class="band-blue tile-bg"><div class="wrap">
@@ -612,7 +606,7 @@ def build_home():
 <div class="text"><div class="kicker">Beyond the DMV</div><h2>Tunisian organizations and works we love</h2>
 <p class="lede">Associations, makers, artists and projects, in the United States and in Tunisia, that keep the culture alive. A growing directory, with room for yours.</p>
 <div class="btn-row" style="margin-top:22px"><a class="btn blue" href="/tunisia/">Browse the directory</a></div></div>
-<figure class="pic tile-frame">{img('kairouan','Courtyard of the Great Mosque of Kairouan')}<figcaption style="padding:10px 4px 0;background:#fff;border-radius:6px;display:inline-block;margin-top:10px;padding:4px 8px">{credit('kairouan')}</figcaption></figure>
+<figure class="pic framed">{img('kairouan','Courtyard of the Great Mosque of Kairouan')}<figcaption>{credit('kairouan')}</figcaption></figure>
 </div></div></section>
 
 <section class="band-red tile-bg saffron"><div class="wrap center">
@@ -646,8 +640,7 @@ def build_about():
 </div></div></section>
 
 <section><div class="wrap narrow">
-<div style="display:grid;grid-template-columns:150px 1fr;gap:30px;align-items:center" class="quote-grid"><img src="/assets/img/tile.svg" alt="" class="tile-single">
-<blockquote class="quote">“Shakshuka isn't just a delicious dish from Tunisia. It's a metaphor for the diversity and richness of our community: a melting pot of backgrounds, ideas and people, better together.”<cite>Team Shakshuka</cite></blockquote></div>
+<blockquote class="quote">“Shakshuka isn't just a delicious dish from Tunisia. It's a metaphor for the diversity and richness of our community: a melting pot of backgrounds, ideas and people, better together.”<cite>Team Shakshuka</cite></blockquote>
 <h2 style="margin:56px 0 16px">What we organize</h2>
 <div class="grid g2">
 <div><h3>Cooking classes</h3><p>Live online classes with Tunisian chefs, four so far, from s'han tounsi to lablabi. Members get free seats.</p></div>
@@ -810,7 +803,7 @@ def build_cookbook():
 </div></div></section>
 <section class="band-sand tile-bg"><div class="wrap"><div class="split">
 <div class="text"><div class="kicker">Next</div><h2>The community cookbook</h2><p>We are collecting recipes from Tunisians across the DC area and beyond: where your dish comes from, when it is served, how to find the ingredients here, and the family story that goes with it. Every recipe will be tested before it is printed.</p><div class="btn-row" style="margin-top:20px"><a class="btn" href="/recipes/">Submit a recipe</a></div></div>
-<figure class="pic framed tile-side">{img('blog-couscous','Making couscous by hand at the Kairouan Couscous Festival, 2025')}<figcaption>Kairouan Couscous Festival, 2025. Photo: Shakshuka</figcaption></figure>
+<figure class="pic framed">{img('blog-couscous','Making couscous by hand at the Kairouan Couscous Festival, 2025')}<figcaption>Kairouan Couscous Festival, 2025. Photo: Shakshuka</figcaption></figure>
 </div></div></section>
 """
     page("/cookbook/", "Discovering Tunisian Cuisine", body, "Signed copies of Discovering Tunisian Cuisine by Judith Dwan Hallet, Raoudha Guellali Ben Taarit and Hasna Trabelsi, sold to support Shakshuka.org.", "assets/img/cookbook.jpg")
@@ -883,7 +876,7 @@ def build_misc():
     page("/thanks/", "Thank you", """<section><div class="wrap narrow center"><div class="kicker">Received</div><h1>Shukran, merci, thank you</h1><p class="lede" style="margin:18px auto 28px">Your message is in. A volunteer will get back to you within a few days. Meanwhile, see what is coming up.</p><div class="btn-row"><a class="btn" href="/events/">Events</a><a class="btn ghost" href="/">Home</a></div></div></section>""", "Thank you")
     rows = "".join(f"<tr><td><img src='/assets/img/{k}-sm.jpg' alt='' style='width:90px;border-radius:8px'></td><td>{esc(t)}</td><td>{esc(a)}</td><td>{l}</td></tr>" for k, t, a, l in PHOTO_CREDITS)
     page("/credits/", "Photo credits", f"""<section><div class="wrap narrow"><div class="kicker">Credits</div><h1 style="font-size:2.4rem">Photo credits</h1>
-<p class="lede" style="margin:16px 0 28px">Photographs of Tunisia on this site come from Wikimedia Commons under Creative Commons licences, with thanks to the photographers. The blue-and-white tile motif was drawn for this site in the style of Nabeul ceramics. Event artwork, film stills and portraits belong to their respective owners and are used to document Shakshuka's events. The Hallet photograph, the cookbook cover and the couscous festival photo are courtesy of their authors.</p>
+<p class="lede" style="margin:16px 0 28px">Photographs of Tunisia on this site come from Wikimedia Commons under Creative Commons licences, with thanks to the photographers. Event artwork, film stills and portraits belong to their respective owners and are used to document Shakshuka's events. The Hallet photograph, the cookbook cover and the couscous festival photo are courtesy of their authors.</p>
 <table class="credits"><tr><th></th><th>Image</th><th>Author</th><th>Licence</th></tr>{rows}</table></div></section>""", "Photo credits")
     (OUT / "404.html").write_text(f"""<!doctype html><html lang="en"><head><meta charset="utf-8"><meta http-equiv="refresh" content="0;url={BASE}/"><title>Not found</title></head><body><p>Page not found. <a href="/">Back home</a>.</p></body></html>""")
     # sitemap + robots
