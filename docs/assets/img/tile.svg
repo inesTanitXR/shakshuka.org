@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+<defs>
+  <g id="lily">
+    <path d="M100 14 C95 24 91 32 100 42 C109 32 105 24 100 14 Z" fill="#1b3f9e"/>
+    <path d="M88 22 C80 30 84 42 96 46 C95 38 93 30 88 22 Z" fill="#1b3f9e"/>
+    <path d="M112 22 C120 30 116 42 104 46 C105 38 107 30 112 22 Z" fill="#1b3f9e"/>
+    <circle cx="100" cy="51" r="3.4" fill="#1b3f9e"/>
+  </g>
+  <g id="corner"><path d="M0 0 L0 60 A60 60 0 0 0 60 0 Z" fill="#1b3f9e"/><path d="M0 0 L0 49 A49 49 0 0 0 49 0 Z" fill="#ffffff"/><path d="M0 0 L0 38 A38 38 0 0 0 38 0 Z" fill="#6f9fe0"/><path d="M0 0 L0 24 A24 24 0 0 0 24 0 Z" fill="#1b3f9e"/><path d="M0 0 L0 14 A14 14 0 0 0 14 0 Z" fill="#ffffff"/><circle cx="59.0" cy="19.2" r="9" fill="#1b3f9e"/><circle cx="54.8" cy="17.8" r="4.5" fill="#ffffff"/><circle cx="43.8" cy="43.8" r="9" fill="#1b3f9e"/><circle cx="40.8" cy="40.8" r="4.5" fill="#ffffff"/><circle cx="19.2" cy="59.0" r="9" fill="#1b3f9e"/><circle cx="17.8" cy="54.8" r="4.5" fill="#ffffff"/><circle cx="52" cy="52" r="3.6" fill="#1b3f9e"/></g>
+  <g id="petal">
+    <path d="M100 68 C87 68 80 82 89 93 C93 97 97 100 100 100 C103 100 107 97 111 93 C120 82 113 68 100 68 Z" fill="#1b3f9e"/>
+    <path d="M100 73 C91 73 86 83 92 90 C95 93 98 96 100 96 C102 96 105 93 108 90 C114 83 109 73 100 73 Z" fill="#6f9fe0"/>
+    <path d="M100 78 L100 95 M94 84 L100 90 M106 84 L100 90" stroke="#1b3f9e" stroke-width="2" stroke-linecap="round" fill="none"/>
+  </g>
+</defs>
+<rect width="200" height="200" fill="#ffffff"/>
+<use href="#corner"/><use href="#corner" transform="rotate(90 100 100)"/><use href="#corner" transform="rotate(180 100 100)"/><use href="#corner" transform="rotate(270 100 100)"/>
+<use href="#lily"/><use href="#lily" transform="rotate(90 100 100)"/><use href="#lily" transform="rotate(180 100 100)"/><use href="#lily" transform="rotate(270 100 100)"/>
+<path d="M100 54 L146 100 L100 146 L54 100 Z" fill="#6f9fe0" stroke="#1b3f9e" stroke-width="3"/>
+<path d="M100 63 L137 100 L100 137 L63 100 Z" fill="#ffffff" stroke="#1b3f9e" stroke-width="2.5"/>
+<use href="#petal"/><use href="#petal" transform="rotate(90 100 100)"/><use href="#petal" transform="rotate(180 100 100)"/><use href="#petal" transform="rotate(270 100 100)"/>
+<circle cx="100" cy="100" r="7.5" fill="#ffffff" stroke="#1b3f9e" stroke-width="2.5"/><circle cx="100" cy="100" r="3" fill="#1b3f9e"/>
+<circle cx="100" cy="58" r="2.6" fill="#1b3f9e"/><circle cx="142" cy="100" r="2.6" fill="#1b3f9e"/><circle cx="100" cy="142" r="2.6" fill="#1b3f9e"/><circle cx="58" cy="100" r="2.6" fill="#1b3f9e"/>
+</svg>
