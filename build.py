@@ -207,6 +207,19 @@ TUNISIA = [
     dict(type="work", name="The Fouta Spa", where="Tunisian fouta towels", url="https://thefoutaspa.com/",
          img="shop-fouta-sm",
          text="Loomed Tunisian foutas for beach, bath and home, soft, quick-drying and made to last."),
+    # ---- artists (Leila, Oct 7 2026) ----
+    dict(type="artist", name="Khalil Ayed", where="Calligrapher · New York", url="/events/calligraphy-workshop/",
+         img="ev-calligraphy-sm",
+         text="Tunisian artist and creative director working between classical Arabic calligraphy and calligraffiti. He led our 2024 workshop at the Ambassador's residence."),
+    dict(type="artist", name="VAJO Cosmos", where="Jawher Soudani · visual artist, Washington, DC", url="https://www.instagram.com/vajo.cosmos/",
+         img="art-vajo-sm",
+         text="Born in Gabès, trained in graphic design in Tunis, now in DC. Bold geometric compositions rooted in North African culture, on walls, textiles and canvas."),
+    dict(type="artist", name="Alia Ben Sliman", where="Painter and photographer", url="https://aliabenslimanart.com/",
+         img="art-alia-sm",
+         text="Paintings, drawings and photographs at the meeting point of East and West, with a focus on North African and Amazigh art."),
+    dict(type="artist", name="Nour Harkati", where="Singer-songwriter · New York", url="https://www.instagram.com/nour.harkati/",
+         img="art-nour-sm",
+         text="Tunisian-born, Brooklyn-based. The guembri and Gnawa rhythms meet New York groove; his album Moulena (2024) is about migration, memory and belonging. Residency at Pioneer Works, stages at globalFEST and Celebrate Brooklyn."),
     # ---- authors and books ----
     dict(type="book", name="Who Is in Charge? Why AI Must Remain Under Human Control", where="Khaled Koubaa", url="https://www.amazon.com/Who-Charge-Remain-Under-Control/dp/B0H8N8VW98/",
          img="book-koubaa", portrait=True,
@@ -244,6 +257,7 @@ PHOTO_CREDITS = [
     ("dar-cherait", "Tiles of Dar Cherait, Tozeur", "Keith Roper", "CC BY 2.0"),
     ("nabeul-ceramist", "Ceramist painting a plate, Nabeul", "SouthAngel", "CC BY-SA 2.0"),
     ("nabeul-potteries", "Potteries in Nabeul", "SouthAngel", "CC BY-SA 2.0"),
+    ("art-nour", "Nour Harkati, photo by Carlos Cruz, courtesy Pioneer Works", "Carlos Cruz", "used with attribution"),
 ]
 
 # ----------------------------------------------------------------- css ----
@@ -731,7 +745,7 @@ def build_tunisia():
 <div class="kicker">Tunisia</div><h1>Tunisian organizations and works worth knowing</h1>
 <p>Associations, shops, books and artists keeping Tunisian culture alive, in the United States and at home. Curated by Shakshuka, growing with your suggestions.</p></div></section>
 <section><div class="wrap">
-<div class="filters" role="tablist"><button class="on" data-t="all">All</button><button data-t="org">Organizations</button><button data-t="work">Shops & makers</button><button data-t="book">Books</button></div>
+<div class="filters" role="tablist"><button class="on" data-t="all">All</button><button data-t="org">Organizations</button><button data-t="work">Shops & makers</button><button data-t="artist">Artists</button><button data-t="book">Books</button></div>
 <div class="dir">{cards}</div>
 </div></section>
 <section class="band-sand tile-bg" id="suggest"><div class="wrap narrow">
