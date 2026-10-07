@@ -54,6 +54,9 @@ textarea{min-height:88px;resize:vertical}
 .send p{color:#d9d2cc;font-size:.97rem}
 .send pre{white-space:pre-wrap;word-break:break-word;font:14px/1.55 ui-monospace,SFMono-Regular,Menlo,monospace;background:#0f0f14;color:#eee;border-radius:12px;padding:16px;margin:0;max-height:300px;overflow:auto}
 .send .row{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.send input[type=text],.send input[type=email]{background:#2b2a33;color:#fff;border-color:#444}
+.send .fields{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:540px){.send .fields{grid-template-columns:1fr}}
 .send .addr{font-size:.95rem;color:#fff;user-select:all;background:#2b2a33;padding:8px 12px;border-radius:8px}
 .toast{font-size:.9rem;color:var(--gold)}
 .progress{position:sticky;top:env(safe-area-inset-top,0px);z-index:5;background:var(--bg);padding-block:10px;font-size:.82rem;color:var(--muted);display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid var(--line)}
@@ -156,16 +159,29 @@ textarea{min-height:88px;resize:vertical}
   </div>
 </div>
 
-<div class="send">
+<form class="send" id="sendform" action="https://formsubmit.co/ines@tanitxr.org" method="POST">
   <h2>Send your answers to Ines</h2>
-  <p>This message updates as you answer. Copy it and send it by email or WhatsApp.</p>
-  <pre id="out"></pre>
+  <p>One button. Your answers go straight to Ines by email, with your name on them.</p>
+  <input type="hidden" name="_subject" value="Shakshuka site review: answers from Leila">
+  <input type="hidden" name="_template" value="table">
+  <input type="hidden" name="_captcha" value="false">
+  <input type="hidden" name="_next" value="https://inestanitxr.github.io/shakshuka.org/review/sent/">
+  <input type="text" name="_honey" style="display:none" tabindex="-1" autocomplete="off">
+  <input type="hidden" name="answers" id="answers">
+  <div class="fields">
+    <div class="field"><label for="sname" style="color:#d9d2cc">Your name</label><input type="text" id="sname" name="name" value="Leila" required></div>
+    <div class="field"><label for="semail" style="color:#d9d2cc">Your email, so Ines can reply</label><input type="email" id="semail" name="email" required placeholder="you@…"></div>
+  </div>
   <div class="row">
-    <button class="btn" id="copy" type="button">Copy message</button>
-    <span class="addr" id="addr">ines@tanitxr.org</span>
+    <button class="btn" id="sendbtn" type="submit">Send to Ines</button>
     <span class="toast" id="toast" aria-live="polite"></span>
   </div>
-</div>
+  <details style="color:#9f968f;font-size:.85rem"><summary style="cursor:pointer">If the button does not work</summary>
+    <p style="margin-top:8px">Copy the text below and email it to <span class="addr" id="addr">ines@tanitxr.org</span></p>
+    <pre id="out" style="margin-top:10px"></pre>
+    <button class="btn ghost" id="copy" type="button" style="margin-top:10px;color:#fff;border-color:#555">Copy message</button>
+  </details>
+</form>
 
 </div>
 </div>
@@ -187,7 +203,7 @@ textarea{min-height:88px;resize:vertical}
     lines.push('6. Photos: '+(val('q6')||'(not answered)'));
     lines.push('7. Domain: '+(val('q7')||'(not answered)')+(t('q7b')?' · Wix login: '+t('q7b'):''));
     if(t('notes')) lines.push('','Notes: '+t('notes'));
-    out.textContent=lines.join('\n');
+    out.textContent=lines.join('\n'); const a=document.getElementById('answers'); if(a) a.value=lines.join('\n');
     const answered=[val('q1'),val('q2'),t('q3'),val('q5'),val('q6'),val('q7')].filter(Boolean).length;
     $('#pcount').textContent=(answered===6?'All answered, copy the message below':answered+' of 6 answered'); $('#pbar').style.width=(answered/6*100)+'%';
     $$('.choice').forEach(c=>c.classList.toggle('on',c.querySelector('input').checked));
@@ -195,6 +211,7 @@ textarea{min-height:88px;resize:vertical}
   }
   try{const s=JSON.parse(localStorage.getItem('shak-review')||'null');if(s){s.r.forEach(p=>{const [n,v]=p.split('=');const i=$$('input[name="'+n+'"]').find(x=>x.value===v);if(i)i.checked=true});s.t.forEach(p=>{const i=p.indexOf('=');const el=document.getElementById(p.slice(0,i));if(el)el.value=p.slice(i+1)})}}catch(e){}
   document.addEventListener('input',build); document.addEventListener('change',build); build();
+  $('#sendform').addEventListener('submit',()=>{build();$('#sendbtn').textContent='Sending…';$('#sendbtn').disabled=true;});
   $('#copy').addEventListener('click',()=>{
     const done=()=>{toast.textContent='Copied. Now paste it into an email or WhatsApp to Ines.';setTimeout(()=>toast.textContent='',5000)};
     const fallback=()=>{const r=document.createRange();r.selectNodeContents(out);const s=getSelection();s.removeAllRanges();s.addRange(r);toast.textContent='Text selected: press copy on your keyboard.'};
