@@ -192,9 +192,10 @@ form.nice .hint{font-size:.8rem;color:var(--muted)}
 .filters button.on{background:var(--ink);border-color:var(--ink);color:#fff}
 .dir{display:grid;grid-template-columns:repeat(3,1fr);gap:26px} @media(max-width:900px){.dir{grid-template-columns:repeat(2,1fr)}} @media(max-width:600px){.dir{grid-template-columns:1fr}}
 .dir .card.logo img{object-fit:contain;padding:28px;background:#fff}
-.dir .card.portrait img{object-fit:contain;background:var(--sand);padding:16px}
-.dir .card.placeholder{border-style:dashed;background:transparent;align-items:center;justify-content:center;text-align:center;padding:36px 26px}
-.dir .card.placeholder .ph{width:72px;height:72px;border-radius:50%;background:var(--saffron-soft);display:grid;place-items:center;font-size:1.8rem;color:#7a5410;margin-bottom:14px}
+.dir .card.portrait img{object-fit:contain;background:var(--sand);padding:18px;aspect-ratio:16/12}
+.dir .cover{aspect-ratio:16/12;background:var(--blue-deep);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;gap:6px}
+.dir .cover span{font-family:var(--display);font-size:1.15rem;line-height:1.2}
+.dir .cover small{font-size:.78rem;color:rgba(255,255,255,.7)}
 .dir .card.hide{display:none}
 
 /* footer */

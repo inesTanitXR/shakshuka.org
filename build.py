@@ -221,12 +221,41 @@ TUNISIA = [
     dict(type="work", name="Qallaline tiles", where="Tunis, 17th to 19th century", url="https://en.wikipedia.org/wiki/Qallaline",
          img="qallaline-panel-sm",
          text="The tile workshops of the Qallaline quarter of Tunis gave the medina its vases, cypresses and blue-and-ochre flowers. Panels survive in the Bardo Museum, Dar Lasram and Dar Ben Abdallah."),
-    dict(type="placeholder", name="Your organization here", where="Tunisian association, club or collective in the US", url="/tunisia/#suggest",
-         text="Student associations, regional clubs, professional networks, mosques and churches with a Tunisian community: tell us about you."),
-    dict(type="placeholder", name="Your business or craft", where="Tunisian makers, restaurants, importers", url="/tunisia/#suggest",
-         text="Olive oil, dates, ceramics, textiles, a Tunisian restaurant or caterer in the DMV: we want to send people your way."),
-    dict(type="placeholder", name="Your art", where="Artists, musicians, filmmakers, writers", url="/tunisia/#suggest",
-         text="Tunisian or Tunisia-inspired work of any kind. We feature artists on this page and invite them to our events."),
+    # ---- shops and makers (sent by Leila, Oct 2026) ----
+    dict(type="work", name="Carthage.co", where="Stoneware, made in Tunisia", url="https://carthage.co/",
+         img="shop-carthage-sm",
+         text="Hand-finished stoneware collections named after Tunisian places, La Marsa, Zaghouan, Dadasi, for a dinner table that starts conversations."),
+    dict(type="work", name="Natural OliveWood", where="New York", url="https://www.naturalolivewood.com/",
+         img="shop-olivewood-sm",
+         text="Olive wood cutting boards, bowls and spoons from Tunisian groves, sold retail and wholesale across the US."),
+    dict(type="work", name="Soukra", where="Contemporary Tunisian design", url="https://soukra.co/",
+         img="shop-soukra-sm",
+         text="A platform for contemporary Tunisian design: fashion, foutas, ceramics, pantry and gifts shaped by heritage. Free US shipping over $100."),
+    dict(type="work", name="OSAY", where="Handcrafted Mediterranean footwear", url="https://osaythelabel.com/",
+         img="shop-osay-sm",
+         text="Our Stories Are Yours: babouches and bags made by artisans, sustainable luxury with a Tunisian soul."),
+    dict(type="work", name="Alyssa Bazaar", where="Washington, DC", url="https://alyssabazaar.com/",
+         img="shop-alyssa-sm",
+         text="A family-run DC business curating hand-painted Tunisian ceramics and olive wood for the kitchen and the table."),
+    dict(type="work", name="The Fouta Spa", where="Tunisian fouta towels", url="https://thefoutaspa.com/",
+         img="shop-fouta-sm",
+         text="Loomed Tunisian foutas for beach, bath and home, soft, quick-drying and made to last."),
+    # ---- authors and books ----
+    dict(type="book", name="Who Is in Charge? Why AI Must Remain Under Human Control", where="Khaled Koubaa", url="https://www.amazon.com/Who-Charge-Remain-Under-Control/dp/B0H8N8VW98/",
+         img="book-koubaa", portrait=True,
+         text="The Sfax-born internet-governance expert and CEO of AT Worthy Technology argues for human oversight as AI systems take on more decisions."),
+    dict(type="book", name="Tunisie, Émeutes du pain de janvier 1984", where="Sadok Rouai · 2026", url="https://www.amazon.com/Tunisie-%C3%89meutes-Janvier-Mythes-R%C3%A9alit%C3%A9s/dp/B0GVVVNM3X",
+         img="book-rouai-emeutes", portrait=True,
+         text="Myths and realities about the role of the IMF and the Central Bank, from a Shakshuka board member who lived it from inside both institutions. In French."),
+    dict(type="book", name="La genèse de la création de la Banque centrale de Tunisie et du dinar", where="Sadok Rouai · Arcadia, Tunis, 2026", url="https://kapitalis.com/tunisie/2026/10/06/sadok-rouai-revient-sur-la-naissance-de-la-bct-et-du-dinar/",
+         img=None, portrait=True,
+         text="How Tunisia won its monetary sovereignty: the negotiations with France and the IMF behind the birth of the dinar and the Central Bank. In French."),
+    dict(type="book", name="A Calamity of Noble Houses", where="Amira Ghenim · translated by Miled Faiza & Karen McNeil", url="https://www.europaeditions.com/book/9798889660507/a-calamity-of-noble-houses",
+         img="book-calamity", portrait=True,
+         text="One night in Tunis, December 1935, told by eleven voices across two families. Finalist for the International Prize for Arabic Fiction, in English from Europa Editions (2025)."),
+    dict(type="book", name="The Italian", where="Shukri Mabkhout · translated by Miled Faiza & Karen McNeil", url="https://www.europaeditions.com/book/9781609457013/the-italian",
+         img="book-italian", portrait=True,
+         text="Winner of the International Prize for Arabic Fiction: a friendship, a newsroom and a revolution betrayed in 1980s Tunis. Europa Editions, 2021. Miled Faiza, who is Tunisian, teaches at Brown University."),
 ]
 
 PHOTO_CREDITS = [
@@ -446,9 +475,10 @@ form.nice .hint{font-size:.8rem;color:var(--muted)}
 .filters button.on{background:var(--ink);border-color:var(--ink);color:#fff}
 .dir{display:grid;grid-template-columns:repeat(3,1fr);gap:26px} @media(max-width:900px){.dir{grid-template-columns:repeat(2,1fr)}} @media(max-width:600px){.dir{grid-template-columns:1fr}}
 .dir .card.logo img{object-fit:contain;padding:28px;background:#fff}
-.dir .card.portrait img{object-fit:contain;background:var(--sand);padding:16px}
-.dir .card.placeholder{border-style:dashed;background:transparent;align-items:center;justify-content:center;text-align:center;padding:36px 26px}
-.dir .card.placeholder .ph{width:72px;height:72px;border-radius:50%;background:var(--saffron-soft);display:grid;place-items:center;font-size:1.8rem;color:#7a5410;margin-bottom:14px}
+.dir .card.portrait img{object-fit:contain;background:var(--sand);padding:18px;aspect-ratio:16/12}
+.dir .cover{aspect-ratio:16/12;background:var(--blue-deep);color:#fff;display:flex;flex-direction:column;justify-content:flex-end;padding:22px;gap:6px}
+.dir .cover span{font-family:var(--display);font-size:1.15rem;line-height:1.2}
+.dir .cover small{font-size:.78rem;color:rgba(255,255,255,.7)}
 .dir .card.hide{display:none}
 
 /* footer */
@@ -604,7 +634,7 @@ def build_home():
 
 <section><div class="wrap"><div class="split rev">
 <div class="text"><div class="kicker">Beyond the DMV</div><h2>Tunisian organizations and works we love</h2>
-<p class="lede">Associations, makers, artists and projects, in the United States and in Tunisia, that keep the culture alive. A growing directory, with room for yours.</p>
+<p class="lede">Associations, shops, authors and artists, in the United States and in Tunisia, that keep the culture alive. A growing directory, with room for yours.</p>
 <div class="btn-row" style="margin-top:22px"><a class="btn blue" href="/tunisia/">Browse the directory</a></div></div>
 <figure class="pic framed">{img('kairouan','Courtyard of the Great Mosque of Kairouan')}<figcaption>{credit('kairouan')}</figcaption></figure>
 </div></div></section>
@@ -722,20 +752,19 @@ def build_tunisia():
     icons = {"placeholder": "✦"}
     cards = ""
     for t in TUNISIA:
-        if t["type"] == "placeholder":
-            cards += f"""<a class="card placeholder" data-t="placeholder" href="{t['url']}"><div class="ph">✦</div><h3>{esc(t['name'])}</h3><p style="color:var(--muted);margin:6px 0 10px;font-size:.85rem">{esc(t['where'])}</p><p>{esc(t['text'])}</p><div class="more" style="margin-top:14px">Suggest an addition →</div></a>"""
-        else:
+        if True:
             ext = t["url"].startswith("http")
             cls = "card" + (" logo" if t.get("logo") else "") + (" portrait" if t.get("portrait") else "")
-            src = f"/assets/img/{t['img']}.{'png' if t.get('logo') else 'jpg'}"
-            cards += f"""<a class="{cls}" data-t="{t['type']}" href="{t['url']}"{' target="_blank" rel="noopener"' if ext else ''}><img src="{src}" alt="{esc(t['name'])}" loading="lazy">
-<div class="body"><div class="meta"><span class="tag {'olive' if t['type']=='org' else 'gold' if t['type']=='work' else 'red'}">{ {'org':'Organization','work':'Work','artist':'Artist'}[t['type']] }</span></div><h3>{esc(t['name'])}</h3><p style="color:var(--muted);font-size:.85rem">{esc(t['where'])}</p><p>{esc(t['text'])}</p><div class="more">{'Visit →' if ext else 'Read more →'}</div></div></a>"""
+            src = f"/assets/img/{t['img']}.{'png' if t.get('logo') else 'jpg'}" if t.get('img') else None
+            pic = f'<img src="{src}" alt="{esc(t["name"])}" loading="lazy">' if src else f'<div class="cover"><span>{esc(t["name"])}</span><small>{esc(t["where"])}</small></div>'
+            cards += f"""<a class="{cls}" data-t="{t['type']}" href="{t['url']}"{' target="_blank" rel="noopener"' if ext else ''}>{pic}
+<div class="body"><div class="meta"><span class="tag {'olive' if t['type']=='org' else 'gold' if t['type']=='work' else 'red'}">{ {'org':'Organization','work':'Shop','book':'Book','artist':'Artist'}[t['type']] }</span></div><h3>{esc(t['name'])}</h3><p style="color:var(--muted);font-size:.85rem">{esc(t['where'])}</p><p>{esc(t['text'])}</p><div class="more">{'Visit →' if ext else 'Read more →'}</div></div></a>"""
     body = f"""
 <section class="page-hero"><div class="bg" style="background-image:url(/assets/img/barber-wall.jpg)"></div><div class="wrap in">
 <div class="kicker">Tunisia</div><h1>Tunisian organizations and works worth knowing</h1>
-<p>Associations, makers, artists and projects keeping Tunisian culture alive, in the United States and at home. Curated by Shakshuka, growing with your suggestions.</p></div></section>
+<p>Associations, shops, books and artists keeping Tunisian culture alive, in the United States and at home. Curated by Shakshuka, growing with your suggestions.</p></div></section>
 <section><div class="wrap">
-<div class="filters" role="tablist"><button class="on" data-t="all">All</button><button data-t="org">Organizations</button><button data-t="work">Works & makers</button><button data-t="artist">Artists</button><button data-t="placeholder">Open spots</button></div>
+<div class="filters" role="tablist"><button class="on" data-t="all">All</button><button data-t="org">Organizations</button><button data-t="work">Shops & makers</button><button data-t="book">Books</button><button data-t="artist">Artists</button></div>
 <div class="dir">{cards}</div>
 </div></section>
 <section class="band-sand tile-bg" id="suggest"><div class="wrap narrow">
