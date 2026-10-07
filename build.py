@@ -188,39 +188,6 @@ TUNISIA = [
     dict(type="org", name="Tanit XR", where="Tunisia · United States · worldwide", url="https://tanitxr.org",
          img="tanitxr-logo", logo=True,
          text="A volunteer community from Tunisia and around the world that scans endangered heritage objects in 3D with their phones, one object at a time, and brings them to life in AR and VR. Volunteers in Tunisia, the United States, Europe and Nigeria meet every Thursday; those who have never been to Tunisia learn its history while modelling lamps, pottery and plants for a free virtual museum. More than 100 models published, 85+ volunteers on four continents."),
-    dict(type="org", name="Tunisian American Young Professionals (TAYP)", where="Falls Church, VA", url="https://www.tayp.org",
-         img="tunis-medina-sm",
-         text="Networking, mentorship and leadership for Tunisian-American professionals, and a bridge between the US and Tunisian economies since 2011."),
-    dict(type="org", name="Tunisian Community Center", where="New York · nationwide", url="https://en.wikipedia.org/wiki/Tunisian_Community_Center",
-         img="kairouan-sm",
-         text="Founded in 1999, the oldest Tunisian-American nonprofit, dedicated to community building and cultural outreach across the country."),
-    dict(type="org", name="Embassy of Tunisia in Washington", where="1515 Massachusetts Ave NW, Washington, DC", url="https://www.tunisianembassy.org",
-         img="sidi-bou-said-gate-sm",
-         text="Our partner on Fashioning Power, Fashioning Peace and host of the calligraphy workshop at the Ambassador's residence. Consular services for Tunisians in the US."),
-    dict(type="work", name="Discovering Tunisian Cuisine", where="Judith Dwan Hallet, Raoudha Guellali Ben Taarit & Hasna Trabelsi", url="/cookbook/",
-         img="cookbook", portrait=True,
-         text="A 147-page journey through Tunisian home cooking, landscapes and people, praised by Joan Nathan as “awesome and authentic”. Signed copies support Shakshuka."),
-    dict(type="work", name="Our Tunisian Table", where="Rim & Munya, Seattle", url="https://www.ourtunisiantable.com",
-         img="tunisian-meal-sm",
-         text="Two cousins born in Tunisia and raised in Seattle sharing recipes, stories and traditions from North Africa, one of the few English-language resources on Tunisian cooking."),
-    dict(type="work", name="Zwïta", where="Houston, TX", url="https://zwitafoods.com",
-         img="harissa-sm",
-         text="Two Tunisian-American brothers making award-winning harissa and shakshuka sauce from ancestral recipes."),
-    dict(type="artist", name="Khalil Ayed", where="Calligrapher, New York", url="/events/calligraphy-workshop/",
-         img="ev-calligraphy-sm",
-         text="Tunisian artist and creative director working between classical Arabic calligraphy and calligraffiti. He led our 2024 workshop."),
-    dict(type="artist", name="Chef Salma Sellami", where="Chef de cuisine", url="/events/cooking-class-1-shan-tounsi/",
-         img="ev-cooking1-sm",
-         text="The chef behind our online cooking class series: s'han tounsi, fricassé, keftagi, lablabi and more."),
-    dict(type="artist", name="Tunisian cinema we have screened", where="Avalon Theatre · Embassy of France · Filmfest DC", url="/events/",
-         img="ev-promised-sky-sm",
-         text="Promised Sky and Under the Fig Trees (Erige Sehiri), Where the Wind Comes From (Amel Guellaty), Aicha (Mehdi M. Barsaoui), Bab'Aziz (Nacer Khemir), The Man Behind the Microphone (Claire Belhassine)."),
-    dict(type="work", name="The potters of Nabeul", where="Nabeul, Cap Bon", url="https://en.wikipedia.org/wiki/Nabeul",
-         img="nabeul-ceramist-sm",
-         text="Tunisia's ceramics capital since antiquity: hand-painted plates, tiles and the pierced jars that line every workshop on Avenue Habib Thameur. The tiles on this site come from this tradition."),
-    dict(type="work", name="Qallaline tiles", where="Tunis, 17th to 19th century", url="https://en.wikipedia.org/wiki/Qallaline",
-         img="qallaline-panel-sm",
-         text="The tile workshops of the Qallaline quarter of Tunis gave the medina its vases, cypresses and blue-and-ochre flowers. Panels survive in the Bardo Museum, Dar Lasram and Dar Ben Abdallah."),
     # ---- shops and makers (sent by Leila, Oct 2026) ----
     dict(type="work", name="Carthage.co", where="Stoneware, made in Tunisia", url="https://carthage.co/",
          img="shop-carthage-sm",
@@ -764,7 +731,7 @@ def build_tunisia():
 <div class="kicker">Tunisia</div><h1>Tunisian organizations and works worth knowing</h1>
 <p>Associations, shops, books and artists keeping Tunisian culture alive, in the United States and at home. Curated by Shakshuka, growing with your suggestions.</p></div></section>
 <section><div class="wrap">
-<div class="filters" role="tablist"><button class="on" data-t="all">All</button><button data-t="org">Organizations</button><button data-t="work">Shops & makers</button><button data-t="book">Books</button><button data-t="artist">Artists</button></div>
+<div class="filters" role="tablist"><button class="on" data-t="all">All</button><button data-t="org">Organizations</button><button data-t="work">Shops & makers</button><button data-t="book">Books</button></div>
 <div class="dir">{cards}</div>
 </div></section>
 <section class="band-sand tile-bg" id="suggest"><div class="wrap narrow">
